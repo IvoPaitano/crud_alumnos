@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+    include ../sections/nav
+    .container
+        h1 Agregar Alumno
+        br
+        form(action='/alumnos/create' method='post')
+            .form-group
+                label(for='name') Nombre
+                input#name.form-control(type='text' name='name' autocomplete='OFF')
+            .form-group
+                label(for='lastName') Apellido
+                input#lastName.form-control(type='text' name='lastName' autocomplete='OFF')
+            input.btn.btn-success(type='submit' value='Agregar')
+            a.btn.btn-danger(href="../alumnos") Cancelar

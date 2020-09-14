@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+  include ../sections/nav
+  .container
+    table.table
+      thead.thead-dark
+        tr
+          th(scope='col') #
+          th(scope='col') Nombre
+          th(scope='col') Apellido
+          th(scope='col') Acciones
+          th(scope='col')
+      tbody
+        each student in allStudents
+          tr
+            th(scope='row')
+              = student.id
+            td= student.nombre
+            td= student.apellido
+            td
+              a.btn.btn-warning(href=`alumnos/${student.id}/edit`) Editar
+            td
+              form(method="post" action=`alumnos/${student.id}/delete`)
+                input(type="hidden", name="id" value= student.id)
+                input.btn.btn-danger(type="submit", value="Eliminar")
+    a.btn.btn-success.btn-block(href='alumnos/create') Agregar alumno

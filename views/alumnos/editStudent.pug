@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+    include ../sections/nav
+    //- form(action=`/alumnos/${oldStudent[0].id}/edit` method='post')
+    //-     label(for='name') Nombre
+    //-         input#name(type='text' name='name' value=oldStudent[0].nombre)
+    //-     label(for='lastName') Apellido
+    //-         input#lastName(type='text' name='lastName' value=oldStudent[0].apellido)
+    //-     label(for='id')
+    //-         input#id(type='hidden' name='id' value=oldStudent[0].id)
+    //-     input(type='submit' value='Simpan')
+    .container
+        h1 Editar Alumno
+        br
+        form(action=`/alumnos/${oldStudent.id}/edit` method='post')
+            .form-group
+                label(for='name') Nombre
+                input#name.form-control(type='text' name='name' autocomplete='OFF' value=oldStudent.nombre)
+            .form-group
+                label(for='lastName') Apellido
+                input#lastName.form-control(type='text' name='lastName' autocomplete='OFF' value=oldStudent.apellido)
+            .form-group
+                label(for='id')
+                input#id(type='hidden' name='id' value=oldStudent.id)
+            input.btn.btn-success(type='submit' value='Confirmar')
+            a.btn.btn-danger(href="../../alumnos") Cancelar
